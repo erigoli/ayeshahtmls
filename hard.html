@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hard Workout Routine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #workout {
+            max-width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hard Workout Routine</h1>
+    <div id="workout">
+        <h2 id="title"></h2>
+        <img id="image" src="" alt="">
+        <p id="description"></p>
+    </div>
+    <script>
+        //  database of hard workouts
+        const hardWorkouts = [
+            { title: "HIIT Workout", description: "Do a high-intensity interval training workout with exercises like sprinting and burpees.", image: "hiit.jpeg" },
+            { title: "Advanced Yoga Flow", description: "Challenge yourself with a series of advanced yoga poses and flows to improve flexibility and strength.", image: "advance.png" },
+            { title: "CrossFit WOD", description: "Complete a CrossFit-style workout of the day, including a variety of functional movements.", image: "cross.jpeg" }
+        ];
+
+        let index = 0;
+
+        function displayWorkout() {
+            const workout = hardWorkouts[index];
+            document.getElementById("title").textContent = workout.title;
+            document.getElementById("description").textContent = workout.description;
+            document.getElementById("image").src = workout.image;
+            index = (index + 1) % hardWorkouts.length;
+        }
+
+        // Display the first workout
+        displayWorkout();
+
+        // Change workout every 5 seconds
+        setInterval(displayWorkout, 5000);
+    </script>
+</body>
+</html>

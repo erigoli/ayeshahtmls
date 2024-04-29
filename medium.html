@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medium Workout Routine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #workout {
+            max-width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Medium Workout Routine</h1>
+    <div id="workout">
+        <h2 id="title"></h2>
+        <img id="image" src="" alt="">
+        <p id="description"></p>
+    </div>
+    <script>
+        //  database of medium workouts with local JPG images
+        const mediumWorkouts = [
+            { title: "Full Body Circuit", description: "Perform a circuit of bodyweight exercises including squats, push-ups, and planks.", image: "fullbody.jpeg" },
+            { title: "Cardio Blast", description: "Do a high-intensity cardio workout with jumping jacks, high knees, and burpees.", image: "cardio.jpeg" },
+            { title: "Strength Training", description: "Focus on strength exercises like lunges, bicep curls, and shoulder presses with dumbbells.", image: "strength.jpeg" }
+        ];
+
+        let index = 0;
+
+        function displayWorkout() {
+            const workout = mediumWorkouts[index];
+            document.getElementById("title").textContent = workout.title;
+            document.getElementById("description").textContent = workout.description;
+            document.getElementById("image").src = workout.image;
+            index = (index + 1) % mediumWorkouts.length;
+        }
+
+        // Display the first workout
+        displayWorkout();
+
+        // Change workout every 5 seconds
+        setInterval(displayWorkout, 5000);
+    </script>
+</body>
+</html>
